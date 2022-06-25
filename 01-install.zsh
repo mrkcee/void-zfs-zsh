@@ -45,7 +45,7 @@ packages=(
 	NetworkManager
 	openresolve
 	git
-	nvim
+	neovim
 	zsh
 	zsh-syntax-highlighting
 	zsh-autosuggestions
