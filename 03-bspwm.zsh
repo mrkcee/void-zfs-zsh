@@ -8,7 +8,6 @@ packages=(
 	rofi
 	feh
 	elogind
-	gnome-keyring
 	xprop
 	xorg-minimal
 	xsetroot
@@ -34,14 +33,3 @@ echo 'Setting git helper...'
 git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret
 
 echo "bspwm has been installed and configured successfully."
-cat <<EOF
-NOTE:
-Add the following in /etc/pam.d/login
-=========================================================================
-Add after the last auth line:
-auth            optional        pam_gnome_keyring.so
-
-Add after last session line:
-session         optional        pam_gnome_keyring.so auto_start
-=========================================================================
-EOF
