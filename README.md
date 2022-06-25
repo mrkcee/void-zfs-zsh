@@ -3,6 +3,15 @@ Set of z shell (ZSH) scripts that I use to help me setup and install Void Linux 
 
 These 00 and 01 scripts were based on [eoli3n's void config scripts](https://github.com/eoli3n/void-config).
 
+These require a Void Linux installation disk with the following packages:
+ - zsh
+ - zfs
+ - parted
+ - gptfdisk
+ - openresolv
+ - efibootmgr
+ - git
+
 ## Numbering
 00 - Preparation of disks and partitions, creation of zpools and datasets
 
