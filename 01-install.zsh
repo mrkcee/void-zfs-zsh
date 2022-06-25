@@ -4,7 +4,7 @@ if ! [[ $UID == 0 || $EUID == 0 ]]; then echo 'Root access is required to run th
 
 # Check if 00-configure.zsh has been completed
 if ! [[ -e /tmp/00-configure-complete ]]; then
-	echo "Configuration not completed. Please run 00-configure.zsh."
+	echo "Configuration not completed. Please run 00-configure.zsh first."
 	exit 1
 fi
 
@@ -19,7 +19,7 @@ root_dataset=$(cat /tmp/root_dataset)
 
 # Set mirror and architecture
 preferred_repo="https://void.webconverger.org/current"
-xbps_arch="X86_64"
+xbps_arch="x86_64"
 
 # Copy keys
 echo "Copying XBPS keys"
