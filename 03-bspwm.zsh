@@ -29,6 +29,13 @@ echo 'Updating .xinitrc...'
 xinitrc_path=~/.xinitrc
 echo "exec bspwm" > $xinitrc_path
 
+echo "Updating .xserverrc..."
+cat <<EOF > $HOME/.xserverrc
+#!/bin/sh
+
+exec /usr/bin/Xorg -nolisten tcp "$@" vt$XDG_VTNR
+EOF
+
 echo 'Setting git helper...'
 git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret
 
