@@ -9,13 +9,16 @@ if ! [[ -e /tmp/00-configure-complete ]]; then
 fi
 
 # Select disk
-source ./common/list_disks_by_id.zsh
-list_disks_by_id
 selected_disk=$(cat /tmp/selected_installation_disk)
+if [[ -z "$selected_disk" ]]; then
+	source ./common/list_disks_by_id.zsh
+	list_disks_by_id
+	selected_disk=$(cat /tmp/selected_installation_disk)
+fi
 efi_partition="$selected_disk-part1"
 
 # Root dataset
-root_dataset=$(cat /tmp/root_dataset)
+rootfs_dataset=$(cat /tmp/rootfs_dataset)
 
 # Set mirror and architecture
 preferred_repo="https://void.webconverger.org/current"
@@ -43,7 +46,7 @@ packages=(
 	acpid
 	socklog-void
 	NetworkManager
-	openresolve
+	openresolv
 	git
 	neovim
 	zsh
@@ -175,7 +178,7 @@ Kernel:
 EOF
 
 # Set cmdline
-zfs set org.zfsbootmenu:commandline="ro quiet nowatchdog loglevel=0" zroot/ROOT/"$root_dataset"
+zfs set org.zfsbootmenu:commandline="ro quiet nowatchdog loglevel=0" zroot/ROOT/"$rootfs_dataset"
 
 echo 'Generating ZFSBootMenu...'
 cat <<EOF | chroot /mnt/ /bin/bash -e

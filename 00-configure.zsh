@@ -59,7 +59,7 @@ zfs set org.zfsbootmenu:commandline="ro quiet" zroot/ROOT
 
 echo "Creating rootfs dataset..."
 rootfs_dataset="void"
-echo $rootfs_dataset > /tmp/root_dataset
+echo $rootfs_dataset > /tmp/rootfs_dataset
 zfs create -o mountpoint=/ -o canmount=noauto "zroot/ROOT/$rootfs_dataset"
 
 # Generate zfs hostid
