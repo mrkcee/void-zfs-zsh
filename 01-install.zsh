@@ -55,6 +55,7 @@ packages=(
 	zsh-completions
 	curl
 	u2f-hidraw-policy
+	elogind
 )
 
 xbps-install -y -S -r /mnt "${packages[@]}"
@@ -118,7 +119,7 @@ cat <<EOF | chroot /mnt/ /bin/bash -e
   # Configure services
   ln -s /etc/sv/chronyd /etc/runit/runsvdir/default/
   ln -s /etc/sv/dbus /etc/runit/runsvdir/default/
-  ln -s /etc/sv/acpid /etc/runit/runsvdir/default/
+  ln -s /etc/sv/elogind /etc/runit/runsvdir/default/
   ln -s /etc/sv/socklog-unix /etc/runit/runsvdir/default/
   ln -s /etc/sv/nanoklogd /etc/runit/runsvdir/default/
   ln -s /etc/sv/NetworkManager /etc/runit/runsvdir/default/
