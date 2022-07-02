@@ -7,11 +7,12 @@ packages=(
 	alacritty
 	rofi
 	feh
-	elogind
 	xprop
 	xorg-minimal
 	xsetroot
+	xf86-video-amdgpu
 	picom
+	scrot
 )
 
 sudo xbps-install -S -y "${packages[@]}"
