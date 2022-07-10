@@ -1,6 +1,7 @@
 #!/bin/zsh -e
 
 packages=(
+	firefox
 	papirus-icon-theme
 	papirus-folders
 	font-firacode
@@ -8,6 +9,7 @@ packages=(
 	noto-fonts-emoji
 	freefont-ttf
 	fonts-roboto-ttf
+	nerd-fonts-ttf
 	libreoffice-writer
 	libreoffice-calc
 	libreoffice-fonts
